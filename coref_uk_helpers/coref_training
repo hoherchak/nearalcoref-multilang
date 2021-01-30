@@ -1,0 +1,26 @@
+python -m neuralcoref.train.conllparser --path ../lesia-uk/train/ --spacy_model uk
+python -m neuralcoref.train.conllparser --path ../lesia-uk/dev/ --spacy_model uk
+python -m neuralcoref.train.conllparser --path ../lesia-uk/test/ --spacy_model uk
+
+python -m neuralcoref.train.learn --train ../lesia-uk/train --eval ../lesia-uk/dev
+
+
+perl ./neuralcoref_source/neuralcoref/train/scorer_wrapper.pl bcub ../ukrainian-coref/ru-corpus/train/key.txt ./neuralcoref_source/neuralcoref/train/test_mentions.txt
+perl ./neuralcoref_source/neuralcoref/train/scorer_wrapper.pl bcub ../ukrainian-coref/ru-corpus/dev/key.txt ./neuralcoref_source/neuralcoref/train/test_mentions.txt
+perl ./neuralcoref_source/neuralcoref/train/scorer_wrapper.pl bcub ../rucoref/dev/key.txt ./neuralcoref_source/neuralcoref/train/test_mentions.txt
+
+
+
+python -m neuralcoref.train.conllparser --path ../ukrainian-coref/ru-corpus/train/ --spacy_model ru
+python -m neuralcoref.train.conllparser --path ../ukrainian-coref/ru-corpus/dev/ --spacy_model ru
+python -m neuralcoref.train.conllparser --path ../ukrainian-coref/ru-corpus/test/ --spacy_model ru
+
+python -m neuralcoref.train.learn --train ../ukrainian-coref/ru-corpus/train --eval ../ukrainian-coref/ru-corpus/dev
+
+
+nohup python3.8 -m neuralcoref.train.conllparser --path ../rucoref/train/ --spacy_model ru > log_train.txt 2> err_train.txt &
+nohup python3.8 -m neuralcoref.train.conllparser --path ../rucoref/dev/ --spacy_model ru > log_dev.txt 2> err_dev.txt &
+nohup python3.8 -m neuralcoref.train.conllparser --path ../rucoref/test/ --spacy_model ru > log_test.txt 2> err_test.txt &
+
+nohup python3.8 -m neuralcoref.train.learn --train ../rucoref/train --eval ../rucoref/dev > log.txt 2> err.txt &
+https://github.com/natasha/navec

@@ -1,0 +1,76 @@
+# NeuralCoref
+/neuralcoref/train/runs/*
+/models/
+/data/
+
+# Cython / C extensions
+cythonize.json
+neuralcoref/*.html
+*.cpp
+*.so
+
+# Vim / VSCode / editors
+*.swp
+*.sw*
+Profile.prof
+.vscode
+.sass-cache
+.idea/*
+
+# Python
+/.Python
+.python-version
+__pycache__/
+*.py[cod]
+.env/
+.env*
+.~env/
+.venv
+venv/
+.dev
+.denv
+.pypyenv
+
+# Temporary files
+*.~*
+tmp/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Distribution / packaging
+env/
+build/
+develop-eggs/
+dist/
+eggs/
+lib64/
+parts/
+sdist/
+var/
+runs/
+neuralcoref/train/test_corefs.txt
+neuralcoref/train/test_mentions.txt
+coref_uk_helpers/fiction.lowercased.lemmatized.glove.300d
+coref_uk_helpers/static_word_embeddings.npy
+coref_uk_helpers/static_word_vocabulary.txt
+coref_uk_helpers/tuned_word_embeddings.npy
+coref_uk_helpers/tuned_word_vocabulary.txt
+coref_uk_helpers/ru/static_word_embeddings.npy
+coref_uk_helpers/ru/static_word_vocabulary.txt
+coref_uk_helpers/ru/tuned_word_embeddings.npy
+coref_uk_helpers/ru/tuned_word_vocabulary.txt
+*.egg-info/
+.installed.cfg
+*.egg
+.eggs
+MANIFEST
+
+# Windows
+*.bat
+Thumbs.db
+Desktop.ini
+
+# Mac OS X
+*.DS_Store
